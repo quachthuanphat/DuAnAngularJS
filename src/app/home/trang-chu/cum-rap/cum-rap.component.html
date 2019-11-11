@@ -1,0 +1,63 @@
+<div class="img_quang_cao mt-3">
+    <img width="100%" height="100%" src="../../../../assets/images/             .jpg" alt="">
+</div>
+
+<div class="container mt-4 cumRapContent d-flex mb-5" id="cumRap">
+
+    <!-- LEFT CONTENT -->
+    <div class="left__content">
+        <ul class="nav nav-tabs listCinema">
+            <li class="nav-item" *ngFor="let item of danhSachRapPhim;let stt = index" (click)="Active(stt,item.maHeThongRap)">
+                <a class="nav-link"  data-toggle="tab" [ngClass]="{active_:stt=== idActiveCenter}">
+                    <img [src]="item.logo" alt="" width="100%" height="100%">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END LEFT CONTENT -->
+
+    <!-- CENTER CONTAIN -->
+    <div class="tab-content center__content">
+        <ng-container [ngSwitch]="idActiveCenter">
+            <ng-container *ngFor="let cumRap of danhSachRapPhim;let stt = index">
+                <ng-container *ngSwitchCase="stt">
+                    <div class="container">
+                        <ng-container *ngFor="let item of heThongChiNhanhRap;let i = index">
+                            <div class="cumRap mb-2" [ngClass]="{'active_' : i === statusActive}" (click)="ActiveDiv(i,cumRap.maHeThongRap,item.maCumRap)">
+                                <h3 class="tenCumRap">{{item.tenCumRap}}</h3>
+                                <p class="diaChiRap">{{item.diaChi}}</p>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+    <!--END CENTER CONTENT -->
+
+    <!-- RIGHT CONTENT -->
+    <div class="right__content">
+        <ng-container [ngSwitch]="idActiveRight">
+            <ng-container *ngFor="let item of heThongChiNhanhRap;let i = index">
+                <ng-container *ngSwitchCase="i">
+                    <div class="container">
+                        <div *ngIf="listPhim.length>0;else null" class="tieuDePhim">
+                            <h3 class="tenPhim">{{listPhim[0].tenPhim}}</h3>
+                            <p class="inforPhim">172 phút - 123Phim 8 - IMDb 7.9</p>
+                        </div>
+                        <ng-template #null></ng-template>
+                        <div *ngFor="let item of phimTheoNgay;let stt = index" class="d-flex mb-2 phimTheoNgay">
+                            <div class="ngay" >
+                                {{item.ngay | date:"dd-MM-yyyy"}}
+                            </div>
+                            <div class="gio" *ngFor="let hour of item.lst">
+                                <app-hour-button [inforHour]="hour" (pushObjectHour)="PhongVe($event)"></app-hour-button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+    <!-- END RIGHT CONTENT -->
+</div>  

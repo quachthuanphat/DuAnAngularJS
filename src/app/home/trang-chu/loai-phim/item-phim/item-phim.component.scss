@@ -1,0 +1,61 @@
+.card{
+    &:hover{
+        cursor: pointer;
+        // background-color: rgba(0, 0, 0, 0.342);
+        .phim__detail{
+            opacity: 1;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.466));
+        }
+    }
+    .phim__detail{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        .phim__detail__content{
+            position: absolute;
+            bottom: 0%;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.692);
+            ._title{
+                color: white;
+                font-weight: 600;
+                margin-top: 10px;
+            }
+            .phim__detail__button{
+                .btn-ct{
+                    background-color: #E71A0F;
+                    color: white;
+                    margin-bottom: 10px;
+                    outline: unset;
+                    padding: 4px 100px;
+                }
+            }
+        }
+        .btn-play{
+            position: absolute;
+            top: 30%;
+            text-align: center;
+            width: 100%;
+            text-align: center;
+            .btn__mo_trailer{
+                background-color: transparent;
+                border: none;
+                outline: unset;
+                .play{
+                padding-left: 3px;
+                font-size: 30px;
+                width: 60px;
+                height: 60px;
+                background-color: #E71A0F;
+                color:white;
+                border: 1px solid #E71A0F;
+                border-radius: 50%;
+                line-height: 60px;
+            }
+            }
+            
+        }
+    }
+}

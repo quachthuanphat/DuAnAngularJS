@@ -1,0 +1,36 @@
+<header class="header">
+    <!-- Logo -->
+    <a routerLink="/trang-chu" class="logo">
+        <img src="../../../../assets/images/web-logo.png" alt="" width="50px" width="50px">
+    </a>
+    <!-- Center Content -->
+    <!-- <nav class="header__menu">
+        <ul>
+            <li>
+                <a href="#">Lịch chiếu</a>
+            </li>
+            <li>
+                <a href="#cumRap">Cụm rạp</a>
+            </li>
+            <li>
+                <a href="#">Tin tức</a>
+            </li>
+            <li>
+                <a href="#">Ứng dụng</a>
+            </li>
+        </ul>
+    </nav> -->
+    <!-- Right Content -->
+    <div class="signin" *ngIf="statusTemplate;else abc">
+        <button class="btn btn__Log" data-toggle="modal" data-target="#myModal" (click)="DangNhap()">Đăng Nhập</button>
+        <button class="btn btn__Log" data-toggle="modal" data-target="#myModal" (click)="DangKy()">Đăng Ký</button>
+    </div>
+    <ng-template #abc >
+        <div class="dangNhapThanhCong"> 
+            <p>Xin Chào {{informationUser}}</p>
+            <button class="btn btn__Log" (click)="LogOut()">Đăng Xuất</button>
+        </div>
+    </ng-template>
+</header>
+
+

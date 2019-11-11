@@ -1,0 +1,12 @@
+<div class="loaiPhim mt-4 container">
+    <div class="d-flex justify-content-center">
+        <button class="btn  mr-4 button__loai__phim" (click)="DoiSangPhimSapChieu()" [ngClass]="{active:statusPhimDangChieu}">Phim Đang Chiếu</button>
+        <button class="btn  button__loai__phim" (click)="DoiLoaiPhimDangChieu()" [ngClass]="{active:statusPhimSapChieu}">Phim Sắp Chiếu</button>
+    </div>
+    <div *ngIf="statusPhimDangChieu;else phimSapChieu">
+        <app-phim-dang-chieu></app-phim-dang-chieu>
+    </div>
+    <ng-template #phimSapChieu>
+        <app-phim-sap-chieu></app-phim-sap-chieu>
+    </ng-template>
+</div>

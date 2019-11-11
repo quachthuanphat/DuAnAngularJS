@@ -1,0 +1,21 @@
+<div class="my__carousel">
+    <owl-carousel #owlElement [options]="carouselOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']"
+        [items]="danhSachPhimDangChieu">
+        <!-- classes to be attached along with owl-carousel class -->
+        <div class="item" *ngFor="let item of danhSachPhimDangChieu;let i = index">
+            <app-item-phim [object]="item" (shareLink)="ShareLink($event)"></app-item-phim>
+        </div>
+    </owl-carousel>
+</div>
+
+
+<div class="modal fade modal__" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal__content">
+            <div class="modal-body">
+                <button type="button" class="close close__modal" data-dismiss="modal"><img src="../../../../../assets/images/close.png" alt=""></button>
+                <iframe width="600px" height="400px" [src]="linkTrailer | safe:'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>

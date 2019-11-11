@@ -1,0 +1,64 @@
+.my__carousel{
+    ::ng-deep .owl-theme{
+        ::ng-deep .owl-stage-outer{
+            z-index: 100;
+        }
+        ::ng-deep .owl-nav{
+            z-index: 1;
+            button{
+                outline: unset;
+                &:hover{
+                    background-color: transparent !important;
+                    color: black;
+                }
+            }
+            position: absolute;
+            width: 100%;
+            top:30%;
+            display: flex;
+            justify-content: space-between;
+            ::ng-deep .owl-prev{
+                // outline: unset;
+                // box-shadow: unset;
+                transform: translateX(-40px);
+                span{
+                    font-size: 60px;
+                }
+            }
+            ::ng-deep .owl-next{
+                outline: unset;
+                box-shadow: unset;
+                transform: translateX(40px);
+                span{
+                    font-size: 60px;
+                }
+            }
+        }
+    }
+}
+.modal__{
+    top:20%;
+    .modal__content{
+        width: 600px;
+        height: 400px;
+        text-align: center;
+        ::ng-deep .modal-body{
+            padding: 0;
+            position: relative;
+            z-index: 1;
+            .close__modal{
+                position: absolute;
+                right: -20px;
+                top: -20px;
+                outline: unset;
+                z-index: 2;
+                // color: white;
+                // font-size: 34px;
+                // height: 44px;
+                // width: 40px;
+                // border: 1px solid white;
+                // border-radius: 50%;    
+            }
+        }
+    }
+}

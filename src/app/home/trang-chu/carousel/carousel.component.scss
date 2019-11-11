@@ -1,0 +1,16 @@
+.carousel{
+    position: relative;
+    .carousel-indicators{
+        li{
+            width:10px;
+            height: 10px;
+            background-color: #d8d8d8;
+            border:2px solid #d8d8d8 ;
+            border-radius: 50%; 
+        }
+        .active{
+            background:#fb4226;
+            border:2px solid #fb4226 ;
+        }
+    }
+}

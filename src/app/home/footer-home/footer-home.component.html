@@ -1,0 +1,52 @@
+<footer class="footer">
+    <div class="footet_content">
+        <div class="upper_content d-flex">
+            <!-- Giới thiệu -->
+            <div class="gioi_thieu">
+                <p class="title">Về chúng tôi</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#" class="item_ỉntroduce">FAQ</a>
+                        <a href="#" class="item_ỉntroduce">Brand Guidelines</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="" class="item_ỉntroduce">Thoả thuận sử dụng</a>
+                        <a href="" class="item_ỉntroduce">Quy chế hoạt động</a>
+                        <a href="" class="item_ỉntroduce">Danh sách bảo mật</a>
+                        <a href="" class="item_ỉntroduce">Quyền lợi thành viên</a>
+                    </div>
+                </div>
+            </div>            
+            <!-- Đối tác -->
+            <div class="doi_tac">
+                <p class="title">Đối tác</p>
+                <ng-container *ngFor="let item of listImage;let stt = index ">
+                    <a href="">
+                        <img [src]="item.src" alt="" width="30px" height="30px" class="mb-3 mr-3">
+                    </a>
+                    <br *ngIf="(stt+1)%5===0">
+                </ng-container>
+            </div>
+            <!-- Mobile App -->
+            <div class="mobile_app ml-5">
+                <p class="title">Mobile App</p>
+                <a href="">
+                    <img src="../../../assets/images/img-for-home/android-logo.png" alt="" width="30px" height="30px" class="mr-3">
+                </a>
+                <a href="">
+                    <img src="../../../assets/images/img-for-home/apple-logo.png" alt="" width="30px" height="30px">
+                </a>
+            </div>
+            <!-- Social -->
+            <div class="social ml-5">
+                <p class="title">Social</p>
+                <a href="">
+                    <img src="../../../assets/images/img-for-home/facebook-logo.png" alt="" width="30px" height="30px" class="mr-3">
+                </a>
+                <a href="">
+                    <img src="../../../assets/images/img-for-home/zalo-logo.png" alt="" width="30px" height="30px">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

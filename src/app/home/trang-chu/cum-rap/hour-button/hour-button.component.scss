@@ -1,0 +1,10 @@
+.buttonHour{
+    color: white;
+    // margin-right: 10px;
+    margin-bottom: 10px;
+    outline: unset;
+    &:focus{
+        outline: unset;
+        box-shadow: unset;
+    }
+}

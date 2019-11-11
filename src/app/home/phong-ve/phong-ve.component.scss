@@ -1,0 +1,122 @@
+.phongVe{
+    .cssDiv {
+        height: 70px;
+    }
+    .stepper{
+      ::ng-deep mat-step-header{
+        &:hover{
+          background-color: transparent;
+        }
+        &:focus{
+          outline: unset;
+        }
+      }
+      ::ng-deep mat-icon{
+        display: none;
+      }
+      ::ng-deep cdk-focused{
+        background-color: transparent;
+      }
+      .chonLoaiGhe{
+        display: flex;
+        // Left Content
+        .left_content{
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 20%;
+          height: 400px;
+        }
+        // Right Content
+        .right_content{
+          padding: 20px;
+          width: 80%;
+          // Thông Tin Rạp
+          .thongTinRap{}
+          // Ticket Type
+          .ticketType{
+            margin-top: 50px;
+            margin-left: 5px;
+            .selectTicket{
+              padding: 25px 0 20px;
+              border-top: 1px solid rgba(233,233,233,.8);
+              .ticket{
+                .btnTicket{
+                 &:focus{
+                   box-shadow: unset;
+                 }
+                }
+                .disableButton{
+                  color: grey!important;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+          // Total
+          .total{
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            .chosenTicket{
+              border: 1px solid #E9E9E9;
+              .chosenContent{
+                width: 70%;
+                padding: 10px;
+              }
+              .btn-next{
+                background-image: linear-gradient(to right, #C02425, #F0CB35);
+                color: white; 
+              }
+              .disableDiv{
+                background-image: linear-gradient(to right, #304352 , #d7d2cc) !important;
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+      .chonGhe{
+        .right_content_chonGhe{
+          .totalMoney{
+            border-bottom: 1px dashed #e9e9e9;
+            height: 80px;
+            margin-bottom: 15px;
+            color: #44c020!important;
+            font-size: 30px;
+            font-weight: 600;
+          }
+          .flimName{
+            border-bottom: 1px dashed #e9e9e9;
+            margin-bottom: 15px;
+            .flimName_item{
+              font-size: 14px;
+            }
+          }
+          .listChairActive{
+            border-bottom: 1px dashed #e9e9e9;
+            font-size: 14px;
+            .tenGhe{
+              display: inline-block;
+              margin: 0px 4px;
+            }
+          }
+          .datGhe{
+            .btn-datGhe{
+              &:active{
+                outline: unset;
+                box-shadow: unset;
+              }
+              &:focus{
+                outline: unset;
+                box-shadow: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+}
+.disableSelectSeat{
+  pointer-events: none;
+}

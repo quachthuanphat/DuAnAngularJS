@@ -1,0 +1,115 @@
+<ng-container *ngIf="dataAPI">
+    <div class="phongVe">
+        <div class="cssDiv"></div>
+        <mat-horizontal-stepper class="stepper" linear>
+            <!-- Chọn Loại Ghế -->
+            <mat-step label="Chọn Loại Ghế">
+                <div class="chonLoaiGhe">
+                    <!-- Left Content -->
+                    <div class="left_content"
+                        [ngStyle]="{ 'background-image': 'url(' + dataAPI.thongTinPhim.hinhAnh + ')'}"></div>
+                    <!-- Right Content -->
+                    <div class="right_content">
+                        <!-- Thông Tin Rạp -->
+                        <div class="thongTinRap">
+                            <p>Tên Phim: {{dataAPI.thongTinPhim.tenPhim}}</p>
+                            <p>Tên Cụm Rạp: {{dataAPI.thongTinPhim.tenCumRap}}</p>
+                            <p>Địa Chỉ: {{dataAPI.thongTinPhim.diaChi}}</p>
+                            <p>Giờ Chiếu: {{dataAPI.thongTinPhim.gioChieu}}</p>
+                        </div>
+                        <!-- Chọn Vé -->
+                        <div class="ticketType">
+                            <div class="selectTicket">
+                                <div class="row ticket">
+                                    <!-- Col 1  -->
+                                    <div class="col-md-4" style="font-size:18px;font-weight: 500">
+                                        <p class="pt-2">Vé Thường 2D</p>
+                                    </div>
+                                    <!-- Col 2 -->
+                                    <div class="col-md-4">
+                                        <p class="pt-2" style="color: #FB4126">{{giaVe|number}}</p>
+                                    </div>
+                                    <!-- Col 3 -->
+                                    <div class="col-md-4">
+                                        <button class="btn btnTicket"
+                                            style="font-size: 20px;padding: none;color: #FB4126" (click)="GiamVe()"
+                                            [ngClass]="{'disableButton':soVe===0}">
+                                            -
+                                        </button>
+                                        <p style="display:inline-block" class="soVe ml-2 mr-2">{{soVe}}</p>
+                                        <button class="btn btnTicket"
+                                            style="font-size: 20px;padding: none;color: #FB4126"
+                                            (click)="TangVe()">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tổng Tiền -->
+                        <div class="total">
+                            <div class="chosenTicket d-flex">
+                                <div class="chosenContent">
+                                    <p style="color:#9b9b9b;font-size: 14px">TỔNG TIỀN </p>
+                                    <p style="color: #FC482E; font-size: 20px">{{soVe*giaVe | number}} VND</p>
+                                </div>
+                                <button class="btn-next" mat-button matStepperNext [ngClass]="{'disableDiv':soVe === 0}"
+                                    style="width: 40%;border-radius: unset">ĐẶT VÉ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-step>
+
+            <!-- Chọn Ghế Và Thanh Toán -->
+            <mat-step label="Chọn Ghế & Thanh Toán">
+                <div class="chonGhe d-flex">
+                    <!-- Left content -->
+                    <!-- Information -->
+                    <div class="left_content_chonGhe pr-3" style="width:130%">
+                        <!-- Information Movie -->
+                        <div class="informationMovie">
+                            <p>Tên Phim: {{dataAPI.thongTinPhim.tenPhim}}</p>
+                            
+                        </div>
+                        <!-- Chain -->
+                        <div class="chairLine mt-5 container">
+                            <!-- Img Screen -->
+                            <div class="screenName" style="text-align: center">
+                                <img src="../../../assets/images/screen.png" alt="">
+                            </div>
+                            <!-- List Seat -->
+                            <div class="listSeat" style="margin-top: -40px;text-align: center;">
+                                <ng-container *ngFor="let item of dataAPI.danhSachGhe; let stt = index">
+                                    <app-item-ghe [objectGhe]="item" (eventDatGhe)="ChonGhe($event)"></app-item-ghe>
+                                    <br *ngIf="(stt+1)%15===0">
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right_content_chonGhe p-4" style="width: 60%; border: 1px solid #E9E9E9; height: 400px">
+                        <!-- Total Money -->
+                        <div class="totalMoney text-center">
+                            {{soVe*giaVe | number}} VND
+                        </div>
+                        <!-- Information Film -->
+                        <div class="flimName">
+                                <p class="flimName_item">Tên Cụm Rạp: {{dataAPI.thongTinPhim.tenCumRap}}</p>
+                                <p class="flimName_item">Địa Chỉ: {{dataAPI.thongTinPhim.diaChi}}</p>
+                                <p class="flimName_item">Giờ Chiếu: {{dataAPI.thongTinPhim.gioChieu}}</p>
+                        </div>
+                        <!-- List Chair Active -->
+                        <div class="listChairActive">
+                            <p>Ghế:
+                                <span class="tenGhe" *ngFor="let item of danhSachGheDangChon">{{item.tenGhe}}</span>
+                            </p>
+                        </div>
+                        <!-- Button Dat Ghe -->
+                        <div class="datGhe text-center pt-3">
+                            <button class="btn btn-success btn_datGhe" style="height: 80px; width:200px" (click)="DatGhe()">ĐẶT GHẾ</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</ng-container>

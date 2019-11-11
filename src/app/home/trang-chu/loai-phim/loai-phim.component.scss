@@ -1,0 +1,18 @@
+.loaiPhim {
+    .active{
+        pointer-events: none
+    }
+    .button__loai__phim {
+    background-color: transparent;
+    outline: unset;
+    box-shadow: unset;
+    font-size: 20px;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:focus {
+      color: red;
+    }
+  }
+}

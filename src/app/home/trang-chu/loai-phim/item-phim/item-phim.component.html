@@ -1,0 +1,17 @@
+<div class="card">
+    <img class="card-img-top" [src]="object.hinhAnh" width="100" height="400">
+    <div class="phim__detail">
+        <div class="btn-play">
+            <button (click)="MoTrailer()" class="btn__mo_trailer" data-toggle="modal" data-target="#modelId">
+                <i class="fa fa-play play"></i>
+            </button>
+        </div>
+        <div class="phim__detail__content">
+            <p class="_title">{{object.tenPhim | shortcut:20 | uppercase}}</p>
+            <div class="phim__detail__button">
+                <button mat-button class="btn-ct" (click)="_DatVe()">Đặt vé</button>
+            </div>
+        </div>
+    </div>
+</div>
+

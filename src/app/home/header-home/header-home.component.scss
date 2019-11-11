@@ -1,0 +1,126 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top:0;
+    left:0;
+    width: 100%;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    padding:0 20px;
+    height: 70px;
+    z-index: 10;
+    background-color:white;
+    position: fixed;
+    z-index: 100;
+    .header__menu ul{
+        margin-left: 55px;
+        list-style: none;
+        margin-top: 16px;
+        // display: flex;
+        // align-items: center;
+        & li{
+            display: inline;
+            margin:0 10px;
+            & a{
+                color:black;
+                text-decoration: none;
+            }
+        }
+    }
+    .signin{
+        color:#999;
+        text-decoration: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        .img__avatar{
+            height: auto;
+            width: 30px;
+            border-radius: 25px;
+            margin-right: 5px
+        }
+        .text__DN{
+            margin-left: 10px;
+            border-left: 1px solid #999;
+            padding-left: 10px;
+        }
+        .btn__Log{
+            box-shadow: unset;
+        }
+    }
+    .dangNhapThanhCong{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            margin-bottom: 0;
+            border-right: 1px solid grey;
+            padding-right: 22px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .header__menu ul{
+            & li{
+                font-size: 14px;
+            }
+        }
+        .signin{
+            button{
+                font-size: 14px;
+            }
+        }
+        .dangNhapThanhCong{
+            p{
+                font-size: 14px;
+            }
+            button{
+                font-size: 14px;
+            }
+        }
+    }
+    @media screen and (max-width: 672px){
+        .logo{
+            display: none;
+        }
+    }
+    @media screen and (max-width:630px){
+        .header__menu ul{
+            & li{
+                font-size: 12px;
+            }
+        }
+        .signin{
+            button{
+                font-size: 12px;
+            }
+        }
+        .dangNhapThanhCong{
+            button{
+                font-size: 12px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+    }
+    @media screen and (max-width:570px){
+        .header__menu ul{
+            & li{
+                font-size: 9px;
+            }
+        }
+        .signin{
+            button{
+                font-size: 9px;
+            }
+        }
+        .dangNhapThanhCong{
+            button{
+                font-size: 9px;
+            }
+            p{
+                font-size: 9px;
+            }
+        }
+    }
+}

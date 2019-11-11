@@ -1,0 +1,29 @@
+.footer{
+    background-color: #222222;
+    padding: 25px 0px;
+    .title{
+        color: white;
+    }
+    .footet_content{
+        width: 70%;
+        margin: 0 auto;
+        .upper_content{
+            .gioi_thieu{
+                width: 32%;
+                margin-right: 40px;
+                .item_ỉntroduce{
+                    display: block;
+                    text-decoration: none;
+                    font-size: 14px;
+                    color: #949494;
+                    transition: all 0.5s;
+                    margin-bottom: 15px;
+                    &:hover{
+                        cursor: pointer;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

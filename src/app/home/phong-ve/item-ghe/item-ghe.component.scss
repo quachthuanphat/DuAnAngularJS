@@ -1,0 +1,27 @@
+.itemGhe {
+  height: 40px;
+  width: 40px;
+  background-color: #f5a623;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: white;
+  border: unset;
+  &:focus {
+    box-shadow: unset;
+    outline: unset;
+  }
+}
+.activeChair {
+  background-color: #43c021 !important;
+  color: black !important;
+}
+.disableChair {
+  background-color: black !important;
+  color: white !important;
+  pointer-events: none;
+}
+.preventActive {
+  pointer-events: none;
+}

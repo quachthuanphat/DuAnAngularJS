@@ -1,0 +1,63 @@
+<ng-container *ngIf="objectPhim">
+    <div class="chiTietPhim">
+        <!-- Div height -->
+        <div class="cssDiv"></div>
+    
+        <!-- Div Top content -->
+        <div class="top_content container d-flex">
+            <div class="movieImg mr-4">
+                <img [src]="objectPhim.hinhAnh" alt="">
+            </div>
+            <div class="movieDescription">
+                <p class="ngayCongChieu">Ngày Công Chiếu: {{objectPhim.ngayKhoiChieu | date:"dd.MM.yyyy"}}</p>
+                <h3 class="tenPhim">{{objectPhim.tenPhim}}</h3>
+                <p class="ngayCongChieu">172 phút - 7.9 IMDb - 2D/Digital</p>
+                <p class="ngayCongChieu">{{objectPhim.moTa}}</p>
+                <a href="#MuaVe" class="btn btnDatVe">Đặt Vé</a>
+            </div>
+        </div>
+    
+        <!-- Div Bottom Content -->
+        <div class="bottom_content d-flex container mt-5" id="MuaVe">
+            <div class="listCinema">
+                <ng-container *ngIf="objectPhim.heThongRapChieu">
+                        <ng-container *ngFor="let item of objectPhim.heThongRapChieu;let stt = index">
+                                <div class="cinema_item" (click)="ActiveDivListDate(stt)" [ngClass]="{'active': idActiveListDay === stt}"> 
+                                    <p class="cinema_name">{{item.maHeThongRap}}</p>
+                                </div>
+                            </ng-container>
+                </ng-container>
+               
+            </div>
+            <div class="listMovie">
+                <!-- ListDate -->
+                <ng-container [ngSwitch]="idActiveListDay">
+                    <ng-container *ngFor="let item of objectPhim.heThongRapChieu;let stt = index">
+                        <div *ngSwitchCase="stt" class="dayOfWeek wrapMovie">
+                            <div class="wrapDayOfWeek">
+                               <div class="selectDay" *ngFor="let item of lichChieuPhimTheoRap; let stt = index" (click)="ActiveDivListMovie(stt)" [ngClass]="{'active': idActiveListMovie === stt}">
+                                    <p class="date mb-0">{{item.ngay | date : "dd-MM" }}</p>
+                               </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+    
+                <!-- ListMovie -->
+                <ng-container [ngSwitch]="idActiveListMovie">
+                    <ng-container *ngFor="let item of lichChieuPhimTheoRap;let stt = index">
+                        <div *ngSwitchCase="stt" class="listMovieContent mt-5">
+                            <p class="tenRap ml-3" style="font-size: 20px,">{{item.lst[0].tenRap}} ---- Giá Vé: {{item.lst[0].giaVe}}</p>
+                            <button class="movieItem btn btn-success mr-3 ml-3" 
+                                    *ngFor="let object of item.lst"
+                                    (click)="DatVe(object.maLichChieu,object.giaVe)">
+                                    {{object.ngayChieuGioChieu | date: "HH:mm"}}
+                            </button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
